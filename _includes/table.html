@@ -76,12 +76,12 @@ function loadData(_url) {
 
       }
       // Do we have a next page?
-      if (typeof data.previous != 'undefined') {
+      if (data.previous != null) {
          $("#pagination").append('<li data-url="' + data.previous + '><a href="'+ data.previos +'"> Previous </a></li>')
          $(".pagination").show();
       }
 
-      if (typeof data.next != 'undefined') {
+      if (data.next != null) {
          $("#pagination").append('<li data-url="' + data.next + '><a href="'+ data.next +'"> Next </a></li>')
          $(".pagination").show();
       } 
