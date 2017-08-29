@@ -29,7 +29,7 @@
   </table>
 
   <!--  Pagination  -->
-  <nav aria-label="Page navigation" class="text-center">
+  <nav class="pagination" aria-label="Page navigation" style="display:none" class="text-center">
     <ul class="pagination" style="display:none" id='pagination'>      
     </ul>
   </nav>
@@ -69,7 +69,7 @@ function loadData(_url) {
                 '<td><a href="' + containers[j].detail + '" target="_blank">' + containers[j].uri + '</a></td>' +
                 '<td>' + containers[j].name + '</td>' +
                 '<td>' + containers[j].tag + '</td>' +
-                '<td class="toggler"><a>singularity pull shub://{{ page.base | replace:'http://','' | replace:'https://','' }}/' + containers[i].uri +'</a><button class="btn btn-theme">Show command</button></td>' +
+                '<td class="toggler"><a>singularity pull shub://{{ page.base | replace:'http://','' | replace:'https://','' }}/' + containers[j].uri +'</a><button class="btn btn-theme">Show command</button></td>' +
           '</tr>')
           count+=1;
           }
@@ -78,12 +78,12 @@ function loadData(_url) {
       // Do we have a next page?
       if (typeof data.previous != 'undefined') {
          $("#pagination").append('<li data-url="' + data.previous + '><a href="'+ data.previos +'"> Previous </a></li>')
-         $("#pagination").show();
+         $(".pagination").show();
       }
 
       if (typeof data.next != 'undefined') {
          $("#pagination").append('<li data-url="' + data.next + '><a href="'+ data.next +'"> Next </a></li>')
-         $("#pagination").show();
+         $(".pagination").show();
       } 
 
       //Hidding all emails
