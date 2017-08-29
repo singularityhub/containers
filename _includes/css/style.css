@@ -13,7 +13,7 @@ body {
     background: #ffffff; 
     margin: 0; 
     height: 100%; 
-    color: {{ site.colors.secondary }};
+    color: #F7F7F7;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     }
@@ -35,7 +35,7 @@ p {
     font-weight: 400;
     font-size: 14px; 
     line-height: 24px;
-    color: {{ site.colors.primary }}; 
+    color: #e32929; 
     margin-top: 10px; 
 }
 
@@ -55,7 +55,7 @@ ol {
 }
 
 a { 
-    color:{{ site.colors.link }};
+    color:#e32929;
     padding: 0;
     margin: 0;
     text-decoration: none; 
@@ -68,18 +68,19 @@ a {
 a:hover,
 a:focus {
   text-decoration: none;
-  color:{{ site.colors.link_hover }};
+  color: #01b2fe;
+  ;
 }
 
 ::-moz-selection  {
     color: #fff;
     text-shadow:none;
-    background:{{ site.colors.secondary }};
+    background:#F7F7F7;
 }
 ::selection {
     color: #fff;
     text-shadow:none;
-    background:{{ site.colors.secondary }};
+    background:#F7F7F7;
 }
 
 .centered {
@@ -107,21 +108,21 @@ a:focus {
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    color: {{ site.colors.primary }};
+    color: #e32929;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: {{ site.colors.primary }};
+    color: #e32929;
     background-color: transparent;
 }
 
 .navbar-default {
-    background-color: {{ site.colors.secondary }};
+    background-color: #F7F7F7;
     border-color: transparent;
 }
 
 .dropdown-menu {
-    background: {{ site.colors.secondary }};
+    background: #F7F7F7;
 }
 
 .dropdown-menu > li > a {
@@ -132,8 +133,8 @@ a:focus {
 
 .btn-theme {
   color: #999;
-  background-color: {{ site.colors.secondary }};
-  border-color: {{ site.colors.secondary }};
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
   margin: 4px;
 }
 .btn-theme:hover,
@@ -142,8 +143,8 @@ a:focus {
 .btn-theme.active,
 .open .dropdown-toggle.btn-theme {
   color: #fff;
-  background-color: {{ site.colors.primary }};
-  border-color: {{ site.colors.primary }};
+  background-color: #e32929;
+  border-color: #e32929;
 }
 
 .dmbutton:hover,
@@ -193,7 +194,7 @@ a:focus {
 }
 
 .hline {
-    border-bottom: 2px solid {{ site.colors.secondary }};
+    border-bottom: 2px solid #F7F7F7;
 }
 
 .hline-w {
@@ -205,7 +206,7 @@ a:focus {
 ################################################################# */
 
 #headerwrap {
-    background-color: {{ site.colors.primary }};
+    background-color: #e32929;
     min-height: 0px;
     padding-top: 100px;
     padding-bottom: 50px;
@@ -233,7 +234,7 @@ a:focus {
 }
 
 #service i {
-    color: {{ site.colors.primary }};
+    color: #e32929;
     font-size: 60px;
     padding: 15px;
 }
@@ -281,15 +282,15 @@ a:focus {
 {
     height:100%;
     width:100%;
-    background-color:{{ site.colors.primary }};
-    background-color:rgba({{ site.colors.primary_rgb }},.9);
+    background-color:#e32929;
+    background-color:rgba(247,0,49,.9);
     text-align:center;
 }
 
 /* Testimonials Wrap */
 #twrapback {
-    background-color: {{ site.colors.primary }};
-    background-color:rgba({{ site.colors.primary_rgb }},.8);
+    background-color: #e32929;
+    background-color:rgba(247,0,49,.8);
     position: absolute;
     top: 0;
     left: 0;
@@ -347,25 +348,18 @@ a:focus {
 #footerwrap {
     padding-top: 60px;
     padding-bottom: 60px;
-    background: {{ site.colors.secondary }};
+    background: #F7F7F7;
 }
 
-#footerwrap p {
-    color: {{ site.colors.footer_content }};
-}
 
-#footerwrap h4 {
-    color: {{ site.colors.footer_heading }};
-}
 
 #footerwrap i {
     font-size: 30px;
-    color: {{ site.colors.footer_content }};
     padding-right: 25px;
 }
 
 #footerwrap i:hover {
-    color: {{ site.colors.primary }}
+    color: #e32929
 }
 
 /*    ################################################################
@@ -374,7 +368,7 @@ a:focus {
 /* General Tweaks */
 
 #blue {
-    background: {{ site.colors.primary }};
+    background: #e32929;
     margin-top: 60px;
     margin-bottom: 60px;
     padding-top: 25px;
@@ -409,7 +403,7 @@ a:focus {
 }
 
 .ctitle {
-    color: {{ site.colors.primary }};
+    color: #e32929;
     font-weight: 700;
     margin-bottom: 15px;
 }
@@ -425,7 +419,7 @@ csmall {
 }
 
 .badge-theme {
-    background: {{ site.colors.primary }};
+    background: #e32929;
 }
 
 /* Contact Page */
