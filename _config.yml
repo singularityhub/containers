@@ -3,8 +3,8 @@
 # Site settings
 title: SREGISTRY
 description: "Singularity Registry for publicly available, institution provided Singularity images."
-baseurl: "//singularityhub.github.io" #important: start with /
-url: "/containers"
+baseurl: "/containers" #important: start with /
+url: ""
 
 # Build settings
 markdown: kramdown
