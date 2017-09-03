@@ -6,7 +6,7 @@ machine:
 
 dependencies:
   pre:
-    - apt-get install python-yaml
+    - pip install pyaml
     - rvm --ruby-version use 2.3.1
     - bundle install
     - bundle exec jekyll build
@@ -17,6 +17,6 @@ general:
 
 test:
   post:
-    - python _tests/test_registry.py
+    - python _tests/test_sregistry.py
     - bundle exec jekyll build
     - python _tests/circle_urls.py ./_site
