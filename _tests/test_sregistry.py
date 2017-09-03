@@ -25,7 +25,7 @@ class TestSRegistry(unittest.TestCase):
     def print_registry_name(self,registry):
         print('Testing Registry %s %s' %os.path.basename(registry).strip('.md'))            
 
-    def load_registries():
+    def load_registries(self):
         '''read metadata from newly added registries'''
         metadata = dict()
         for registry in self.added:
