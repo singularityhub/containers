@@ -7,6 +7,7 @@ machine:
 dependencies:
   pre:
     - pip install pyaml
+    - pip install requests
     - rvm --ruby-version use 2.3.1
     - bundle install
     - bundle exec jekyll build
@@ -17,6 +18,6 @@ general:
 
 test:
   post:
-    - python _tests/test_sregistry.py
+    - python -m unittest _tests.test_sregistry
     - bundle exec jekyll build
     - python _tests/circle_urls.py ./_site

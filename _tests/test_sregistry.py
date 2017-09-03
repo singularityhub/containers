@@ -57,7 +57,23 @@ class TestSRegistry(unittest.TestCase):
             self.print_registry_name(registry)
             self.assertTrue(registry.endswith('md'))
             
-    def test_valid_metadata(self):
+
+    def test_markdown_metadata(self):
+        '''ensure that fields are present in markdown file'''
+
+        print("Checking markdown fields...")
+
+        for registry in self.added:
+            self.print_registry_name(registry)
+            fields = ['layout', 'base', 'date', 'author', 'categories',
+                      'img','thumb','tagged','institution', 'title']
+            metadata = self.lookup[registry]
+            for field in fields:
+                self.assertTrue(field in metadata)
+                self.assertTrue(metadata[field] not in ['', None])
+
+
+    def test_served_metadata(self):
         '''metadata served by a registry should match the 
            metadata provided in the markdown file'''
  
@@ -70,12 +86,15 @@ class TestSRegistry(unittest.TestCase):
             response = requests.get(idcard)
             self.assertEqual(response.status_code,200)
             card = response.json()
+
             fields = ['id', 'name', 'url']
             for field in fields:
                 self.assertTrue(field in card)
             self.assertEqual(metadata['uid'],card['id'])
             self.assertEqual(metadata['base'],card['url'])
             self.assertEqual(metadata['title'],card['name'])
+            self.assertEqual(metadata['layout'],'registry')
+
 
 
 if __name__ == '__main__':

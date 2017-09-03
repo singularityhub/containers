@@ -1,5 +1,7 @@
 # Singularity Registry Containers
 
+[![CircleCI](https://circleci.com/gh/singularityhub/containers.svg?style=svg)](https://circleci.com/gh/singularityhub/containers)
+
 Hi there! This is a feed of "registered" Singularity registries. You can submit a pull request (PR) to this repo if you have deployed a <a href="https://singularityhub.github.io/sregistry">Singularity Registry</a> with containers to share! 
 
 ## How to Register
