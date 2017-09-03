@@ -1,0 +1,22 @@
+machine:
+  python:
+    version: 3.5.1
+  ruby:
+    version: 2.3.1
+
+dependencies:
+  pre:
+    - apt-get install python-yaml
+    - rvm --ruby-version use 2.3.1
+    - bundle install
+    - bundle exec jekyll build
+
+general:
+  artifacts:
+    - "./_site"
+
+test:
+  post:
+    - python _tests/test_registry.py
+    - bundle exec jekyll build
+    - python _tests/circle_urls.py ./_site
