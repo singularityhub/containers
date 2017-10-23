@@ -61,8 +61,18 @@ function loadData(_url) {
       console.log(data);
       var count = 1;
       for (var i = 0; i < data.length; i++) {
-        var collection = data[i]
-        var containers = collection.containers
+
+        // Pagination
+        if ('results' in data){
+            var collection = data.results.[i]
+            var containers = collection.containers
+
+        // No pagination
+        } else {
+            var collection = data[i]
+            var containers = collection.containers
+        }
+
         if ( containers.length > 0 ) {
             for (var j = 0; j < containers.length; j++) {
                 $('.ajax-content').append('<tr>' +
