@@ -6,8 +6,8 @@ date:   2017-10-23 05:54:46
 author: Vanessa Sochat
 categories:
 - registry
-img: robots/robot1.png
-thumb: robots/robot1.png
+img: robots/robot10.png
+thumb: robots/robot10.png
 tagged: public, Stanford
 institution: Stanford University
 ---

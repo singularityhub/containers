@@ -50,8 +50,9 @@ class TestSRegistry(unittest.TestCase):
         for registry in self.added:
             self.print_registry_name(registry)
             metadata = self.lookup[registry]
-            response = requests.get(metadata['base'])
-            self.assertEqual(response.status_code,200)
+            if 'private' not in metadata['layout']:
+                response = requests.get(metadata['base'])
+                self.assertEqual(response.status_code,200)
 
     def test_filenames(self):
         for registry in self.added:
@@ -66,12 +67,14 @@ class TestSRegistry(unittest.TestCase):
 
         for registry in self.added:
             self.print_registry_name(registry)
-            fields = ['layout', 'base', 'date', 'author', 'categories',
+            fields = ['layout', 'date', 'author', 'categories',
                       'img','thumb','tagged','institution', 'title']
             metadata = self.lookup[registry]
             for field in fields:
                 self.assertTrue(field in metadata)
                 self.assertTrue(metadata[field] not in ['', None])
+            if 'private' not in metadata['layout']:
+                self.assertTrue('base' in metadata)
 
 
     def test_served_metadata(self):
@@ -83,20 +86,20 @@ class TestSRegistry(unittest.TestCase):
         for registry in self.added:
             self.print_registry_name(registry)
             metadata = self.lookup[registry]
-            idcard = '%s/api/registry/identity' %metadata['base'] 
-            response = requests.get(idcard)
-            self.assertEqual(response.status_code,200)
-            card = response.json()
 
-            fields = ['id', 'name', 'url']
-            for field in fields:
-                self.assertTrue(field in card)
-            self.assertEqual(metadata['uid'],card['id'])
-            self.assertEqual(metadata['base'],card['url'])
-            self.assertEqual(metadata['title'],card['name'])
-            self.assertEqual(metadata['layout'],'registry')
+            if 'private' not in metadata['layout']:
+                idcard = '%s/api/registry/identity' %metadata['base'] 
+                response = requests.get(idcard)
+                self.assertEqual(response.status_code,200)
+                card = response.json()
 
-
+                fields = ['id', 'name', 'url']
+                for field in fields:
+                    self.assertTrue(field in card)
+                self.assertEqual(metadata['uid'],card['id'])
+                self.assertEqual(metadata['base'],card['url'])
+                self.assertEqual(metadata['title'],card['name'])
+                self.assertEqual(metadata['layout'],'registry')
 
 if __name__ == '__main__':
     unittest.main()
