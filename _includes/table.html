@@ -60,18 +60,18 @@ function loadData(_url) {
     success: function(data) {
       console.log(data);
       var count = 1;
-      for (var i = 0; i < data.length; i++) {
 
-        // Pagination
-        if ('results' in data){
-            var collection = data.results.[i]
-            var containers = collection.containers
+      // Pagination (top) vs not (bottom)
+      if ('results' in data){
+            var results = data.results
+      } else {
+            var results = data
+      }
 
-        // No pagination
-        } else {
-            var collection = data[i]
-            var containers = collection.containers
-        }
+      for (var i = 0; i < results.length; i++) {
+
+        var collection = data[i]
+        var containers = collection.containers
 
         if ( containers.length > 0 ) {
             for (var j = 0; j < containers.length; j++) {
@@ -87,16 +87,21 @@ function loadData(_url) {
           }
 
       }
+
       // Do we have a next page?
-      if (data.previous != null) {
-         $("#pagination").append('<li data-url="' + data.previous + '><a href="'+ data.previos +'"> Previous </a></li>')
-         $(".pagination").show();
+      if ('previous' in data) {
+          if (data.previous != null) {
+             $("#pagination").append('<li data-url="' + data.previous + '><a href="'+ data.previos +'"> Previous </a></li>')
+             $(".pagination").show();
+          }
       }
 
-      if (data.next != null) {
-         $("#pagination").append('<li data-url="' + data.next + '><a href="'+ data.next +'"> Next </a></li>')
-         $(".pagination").show();
-      } 
+      if ('next' in data) {
+          if (data.next != null) {
+              $("#pagination").append('<li data-url="' + data.next + '><a href="'+ data.next +'"> Next </a></li>')
+              $(".pagination").show();
+          } 
+      }
 
       //Hidding all emails
       $('.ajax-content .toggler a').each(function() {
