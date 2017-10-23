@@ -32,16 +32,18 @@ class TestSRegistry(unittest.TestCase):
         for registry in self.added:
             uid = os.path.basename(registry).strip('.md')
             uid = re.sub('-registry$','', uid)
-            with open(registry, "r") as stream:
-                docs = yaml.load_all(stream)
-                for doc in docs:
-                    if isinstance(doc,dict):
-                        for k,v in doc.items():
-                            print('%s: %s' %(k,v))
-                            metadata[k] = v
-            metadata['uid'] = uid
-            self.lookup[registry] = metadata
-
+            if os.path.exists(registry):
+                with open(registry, "r") as stream:
+                    docs = yaml.load_all(stream)
+                    for doc in docs:
+                        if isinstance(doc,dict):
+                            for k,v in doc.items():
+                                print('%s: %s' %(k,v))
+                                metadata[k] = v
+                metadata['uid'] = uid
+                self.lookup[registry] = metadata
+            else:
+                print('Skipping %s, file removed.' % registry)
 
     def test_endpoints(self):
         ''' test registry endpoints serve expected metadata '''
