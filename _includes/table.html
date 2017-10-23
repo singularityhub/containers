@@ -77,7 +77,7 @@ function loadData(_url) {
                 $('.ajax-content').append('<tr>' +
                    '<td>'+count+'</td>' +
                    '<td><a href="{{ page.base }}' + collection.name + '" target="_blank">' + collection.name + '</a></td>' +
-                   '<td>' + containers[j].name + '</td>' +
+                   '<td>' + collection.name + '</td>' +
                    '<td>' + containers.length + '</td>' +
                    '<td class="toggler"><a>singularity pull shub://{{ page.base | replace:'http://','' | replace:'https://','' }}/' + collection.name +'</a><button class="btn btn-theme">Show command</button></td>' +
               '</tr>')
