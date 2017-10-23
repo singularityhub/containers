@@ -1,7 +1,7 @@
 ---
 layout: registry
 title:  "Singularity Hub"
-base: https://www.singularity-hub.org
+base: https://singularity-hub.org
 date:   2017-10-23 05:54:46
 author: Vanessa Sochat
 categories:

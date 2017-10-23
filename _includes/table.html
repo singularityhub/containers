@@ -16,9 +16,9 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Container</th>
+        <th>Collection</th>
         <th>Name</th>
-        <th>Tag</th>
+        <th>Containers</th>
         <th>Pull</th>
       </tr>
     </thead>
@@ -74,16 +74,14 @@ function loadData(_url) {
         var containers = collection.containers
 
         if ( containers.length > 0 ) {
-            for (var j = 0; j < containers.length; j++) {
                 $('.ajax-content').append('<tr>' +
                    '<td>'+count+'</td>' +
-                   '<td><a href="' + containers[j].detail + '" target="_blank">' + containers[j].uri + '</a></td>' +
+                   '<td><a href="{{ page.base }}' + collection.name + '" target="_blank">' + collection.name + '</a></td>' +
                    '<td>' + containers[j].name + '</td>' +
-                   '<td>' + containers[j].tag + '</td>' +
-                   '<td class="toggler"><a>singularity pull shub://{{ page.base | replace:'http://','' | replace:'https://','' }}/' + containers[j].uri +'</a><button class="btn btn-theme">Show command</button></td>' +
+                   '<td>' + containers.length + '</td>' +
+                   '<td class="toggler"><a>singularity pull shub://{{ page.base | replace:'http://','' | replace:'https://','' }}/' + collection.name +'</a><button class="btn btn-theme">Show command</button></td>' +
               '</tr>')
               count+=1;
-             }
           }
 
       }
