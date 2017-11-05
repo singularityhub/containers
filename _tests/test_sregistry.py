@@ -21,10 +21,11 @@ class TestSRegistry(unittest.TestCase):
         added,error = process.communicate()
         added = [x for x in added.decode('utf-8').split('\n') if x]
         self.added = [x for x in added if x.startswith('_registries')] 
-        self.lookup = self.load_registries()
+        self.lookup = {}
+        self.load_registries()
 
     def print_registry_name(self,registry):
-        print('Testing Registry %s %s' %os.path.basename(registry).strip('.md'))            
+        print('Testing Registry %s' % os.path.basename(registry).strip('.md'))            
 
     def load_registries(self):
         '''read metadata from newly added registries'''
