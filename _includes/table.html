@@ -58,21 +58,23 @@ function loadData(_url) {
     url: this.url,
     dataType: 'json',
     success: function(data) {
-      console.log(data);
       var count = 1;
 
       // Pagination (top) vs not (bottom)
       if ('results' in data){
-            var results = data.results
+            var results = data['results']
       } else {
             var results = data
       }
 
+      console.log(results);
+
       for (var i = 0; i < results.length; i++) {
 
-        var collection = data[i]
-        var containers = collection.containers
+        var collection = results[i]
+        var containers = collection['containers']
 
+        console.log(containers)
         if ( containers.length > 0 ) {
                 $('.ajax-content').append('<tr>' +
                    '<td>'+count+'</td>' +
