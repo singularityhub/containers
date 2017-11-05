@@ -72,13 +72,19 @@ function loadData(_url) {
         var collection = results[i]
         var containers = collection['containers']
 
+        console.log(collection)
         if ( containers.length > 0 ) {
                 $('.ajax-content').append('<tr>' +
                    '<td>'+count+'</td>' +
-                   '<td><a href="{{ page.base }}' + collection.name + '" target="_blank">' + collection.name + '</a></td>' +
+                   '<td><a href="{{ page.base }}/collections/' + collection.id + '" target="_blank">' + collection.name + '</a></td>' +
                    '<td>' + collection.name + '</td>' +
                    '<td>' + containers.length + '</td>' +
+
+                    {% if page.title == "Singularity Hub" %}
                    '<td class="toggler"><a>singularity pull shub://{{ page.base | replace:'http://','' | replace:'https://','' }}/' + collection.name +'</a><button class="btn btn-theme">Show command</button></td>' +
+                    {% else %}
+                   '<td class="toggler"><a>singularity pull shub://{{ page.base | replace:'http://','' | replace:'https://','' }}/' + collection.name +'/[container]</a><button class="btn btn-theme">Show command</button></td>' +
+                    {% endif %}
               '</tr>')
               count+=1;
           }
