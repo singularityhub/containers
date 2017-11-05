@@ -67,14 +67,11 @@ function loadData(_url) {
             var results = data
       }
 
-      console.log(results);
-
       for (var i = 0; i < results.length; i++) {
 
         var collection = results[i]
         var containers = collection['containers']
 
-        console.log(containers)
         if ( containers.length > 0 ) {
                 $('.ajax-content').append('<tr>' +
                    '<td>'+count+'</td>' +
