@@ -29,8 +29,8 @@ class TestSRegistry(unittest.TestCase):
 
     def load_registries(self):
         '''read metadata from newly added registries'''
-        metadata = dict()
         for registry in self.added:
+            metadata = dict()
             uid = os.path.basename(registry).strip('.md')
             uid = re.sub('-registry$','', uid)
             if os.path.exists(registry):
@@ -45,6 +45,9 @@ class TestSRegistry(unittest.TestCase):
                 self.lookup[registry] = metadata
             else:
                 print('Skipping %s, file removed.' % registry)
+
+        # Update the list of added
+        self.added = list(self.lookup.keys())
 
     def test_endpoints(self):
         ''' test registry endpoints serve expected metadata '''
