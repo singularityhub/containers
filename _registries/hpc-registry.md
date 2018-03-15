@@ -6,8 +6,8 @@ date:   2018-03-15 12:16:23
 author: sdouyeb
 categories:
 - registry
-img: robots/robot10357.png
-thumb: robots/robot10357.png
+img: custom/intel-hpc.jpeg
+thumb: custom/intel-hpc.jpeg
 tagged: HPC
 institution: Intel HPC Containers
 ---
