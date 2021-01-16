@@ -7,7 +7,7 @@ author: vladdoster
 categories:
 - registry
 img: robots/hms-rc_robot.png
-thumb: robots/hms_rc-robot.png
+thumb: robots/hms-rc_robot.png
 tagged: HMS-RC
 institution: Harvard Medical School - Research Computing
 ---
