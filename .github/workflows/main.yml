@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    environment:
+      name: github-pages
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.5'
+          architecture: 'x64'
+
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.4'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install pyaml
+          pip install requests
+          gem install bundler
+          bundle install
+          bundle exec jekyll build
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: jekyll-site
+          path: ./_site
+
+      - name: Run unit tests
+        run: |
+          python -m unittest _tests.test_sregistry
+          bundle exec jekyll build
+          python _tests/circle_urls.py ./_site
