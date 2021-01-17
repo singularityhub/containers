@@ -1,5 +1,5 @@
 ---
-layout: registry-private
+layout: registry
 title:  "UTSW BioHPC"
 date:   2017-10-23 10:28:00
 author: Dave Trudgian

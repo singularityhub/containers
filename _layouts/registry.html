@@ -5,7 +5,22 @@ layout: default
 <div class="container mt">
     <div class="row">
 
-        {% include table.html %}
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">  
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+
+        <!-- Jumbotron -->
+        <div id="jumbotron" class="jumbotron">
+           <div class="container">
+                <h1 class="lobster-font">{{ page.title }}</h1>
+                {% if page.contact %}
+                <p><a class="btn btn-lg btn-theme" href="{{ page.base }}" role="button">Learn more</a></p>
+                {% else %}
+                <p><a class="btn btn-lg btn-theme" href="{{ site.baseurl }}" role="button">Back</a></p>
+                {% endif %}
+
+
+            </div>
+        </div>
 
         <div style="margin-top:25px" class="col-lg-5 col-lg-offset-1">
             <div class="spacing"></div>
@@ -24,7 +39,6 @@ layout: default
             <p><b>Categories:</b> {{ page.categories }}</p>
             <p><b>Tagged:</b> {{ page.tagged }}</p>
             <p><b>Institution:</b> {{ page.institution }}</p>
-            <p><b>Website:</b> <a href="{{ page.base }}" target="_blank">{{ page.base }}</a></p>
         </div>
     </div><! --/row -->
 </div><! --/container -->
