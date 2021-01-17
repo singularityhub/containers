@@ -34,10 +34,8 @@ institution: Stanford University
 Stanford Containers is a registry of containers for Stanford University that doesn't exist yet!
 ```
 
-The name of the markdown file MUST coincide with the [REGISTRY_URI](https://singularityhub.github.io/sregistry/deployment.html#registry-contact) you have chosen for your endpoint. Thus, if my registry identifier is `taco` then the file would need to be called `taco-registry.md`. Note that the images `robots/robot1.png` are found in the `assets/img/registry` folder. If you want your registry to be private, meaning no listing of a base or containers, then simply change the layout to `registry-private`.
-
-
-Note that it's important that you specify http or https, so the site is directed to correctly. You should generally choose the same image for your `thumbnail` and `img` but we've provided both so you can customize.
+The name of the markdown file MUST coincide with the [REGISTRY_URI](https://singularityhub.github.io/sregistry/deployment.html#registry-contact) you have chosen for your endpoint. Thus, if my registry identifier is `taco` then the file would need to be called `taco-registry.md`. Note that the images `robots/robot1.png` are found in the `assets/img/registry` folder. 
+You should generally choose the same image for your `thumbnail` and `img` but we've provided both so you can customize.
 
 3. When you are ready to test, run `jekyll serve`.
 
